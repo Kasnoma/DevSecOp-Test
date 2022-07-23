@@ -1,6 +1,33 @@
-# Getting Started with Create React App
+# Table of Contents
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- [Overview](#overview)
+- [Tools](#tools)
+- [Installation](#installation)
+- [Available Scripts](#available-scripts)
+- [Preview](#preview)
+- [Author](#author)
+
+## Overview
+
+This is the solution to the Afex Nigeria Frontend Engineer Interview. The goal of this project is to create a simple and managed workflow for registering new users of the application to manage their workflows and interact with the latest stock market data.
+
+## Tools
+
+The project uses the following tools:
+
+- [React](https://reactjs.org/)
+- [React-Router](https://reacttraining.com/react-router/web/guides/quick-start)
+- [React-Redux](https://react-redux.js.org/)
+- [Redux](https://redux.js.org/)
+- [Redux-Thunk]()
+- [Typescript](https://www.typescriptlang.org/)
+- [Axios](https://www.npmjs.com/package/axios)
+
+## Installation
+
+### `npm install`
+
+Install all the dependencies required for running this application
 
 ## Available Scripts
 
@@ -16,8 +43,7 @@ You will also see any lint errors in the console.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner in the interactive watch mode.
 
 ### `npm run build`
 
@@ -25,9 +51,7 @@ Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The app is ready to be deployed!
 
 ### `npm run eject`
 
@@ -39,8 +63,12 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Preview
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+For a more interactive preview of the project, visit [production](https://hemense-comx.netlify.app).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Author
+
+- [Hemense Lan](https://hemense.net)
+- [Contact Me](mailto:lihemen@gmail.com)
+
