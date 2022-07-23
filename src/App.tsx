@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
+import "./App.css";
 
-function App() {
+import { Dashboard } from "./Pages/Dashboard";
+import { Splash } from "./Pages/Splash";
+import { Signin } from "./Pages/Signin";
+import { Signup } from "./Pages/Signup";
+import { ForgotPassword } from "./Pages/ForgotPassword";
+import { OTPValidation } from "./Pages/OTPValidation";
+
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="welcome" element={<Splash />} />
+      <Route path="sign-in">
+        <Route index element={<Signin />} />
+        <Route path="password-reset">
+          <Route index element={<ForgotPassword />} />
+          <Route path="otp-validation" element={<OTPValidation />} />
+        </Route>
+      </Route>
+      <Route path="register" element={<Signup />} />
+      <Route path="dashboard/market/order-book" element={<Dashboard />} />
+      <Route path="*" element={<Navigate to="/welcome" replace />} />
+    </Routes>
   );
-}
+};
 
 export default App;
+
