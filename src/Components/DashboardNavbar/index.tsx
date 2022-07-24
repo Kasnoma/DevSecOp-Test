@@ -3,17 +3,16 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import "./navbar.css";
 
-interface Balance {
+interface IBalance {
   name: string;
   value: number;
 }
 
-type Prop = {
-  balances: Array<Balance>;
+type Props = {
+  balances: Array<IBalance>;
 };
 
-export const DashboardNavbar: React.FC<Prop> = ({ balances }) => {
-  const [dark, setDark] = React.useState(false);
+export const DashboardNavbar: React.FC<Props> = ({ balances }) => {
   return (
     <nav className="dashboard__navbar">
       <div className="logo__container">
@@ -21,12 +20,7 @@ export const DashboardNavbar: React.FC<Prop> = ({ balances }) => {
           <img src={logo} alt="logo" />
         </Link>
         <div className="toggle">
-          <input
-            type="checkbox"
-            name="theme"
-            id="theme"
-            onChange={(s) => setDark(!s)}
-          />
+          <input type="checkbox" name="theme" id="theme" />
           <label htmlFor="theme"></label>
         </div>
       </div>
