@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4d1971e8-a2c1-4dc4-aa76-12398cd67aa7/deploy-status)](https://app.netlify.com/sites/hemense-comx/deploys)
+
 # Table of Contents
 
 - [Overview](#overview)
