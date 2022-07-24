@@ -110,6 +110,7 @@ ul {
   width: 100%;
   margin: 10px 0;
   transition: all 0.2s ease-in-out;
+  background-color: transparent;
 }
 .btn:hover {
   background-color: transparent;
@@ -145,6 +146,18 @@ ul {
 .btn-brown:hover {
   border-color: var(--bg-brown);
   color: var(--bg-brown);
+}
+.btn-outline-danger {
+  border-color: var(--bg-danger);
+  color: var(--bg-danger);
+}
+.btn-outline-success {
+  border-color: var(--bg-success);
+  color: var(--bg-success);
+}
+.btn-outline-dark {
+  border-color: var(--bg-dark);
+  color: var(--bg-dark);
 }
 
 .bg-success {

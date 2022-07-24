@@ -1,0 +1,34 @@
+.dashboard__sidebar {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  height: 100%;
+  background: #fff;
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard__sidebar li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.dashboard__sidebar li a:hover {
+  text-decoration: none;
+  color: var(--bg-danger);
+}
+
+.dashboard__sidebar li span:last-child {
+  display: block;
+  font-size: 12px;
+}
+
+.sidebar__icon {
+  font-size: 24px;
+}
+

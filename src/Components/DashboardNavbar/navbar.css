@@ -1,0 +1,115 @@
+.dashboard__navbar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  border-bottom: 1px solid #ededed;
+}
+
+.logo__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 60%;
+  padding: 10px;
+}
+.logo__container img {
+  height: 30px;
+  width: 100px;
+}
+
+.toggle input[type="checkbox"] {
+  display: none;
+}
+
+.toggle label {
+  background-color: #f4f4f4;
+  border: 1px solid var(--typographic-text-color-light);
+  border-radius: 50px;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: all ease-in-out 0.3s;
+  width: 50px;
+  height: 25px;
+  padding: 2px;
+  font-size: 10px;
+}
+
+.toggle label::after {
+  background-color: var(--secondary-color);
+  border-radius: 50%;
+  content: "";
+  cursor: pointer;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: all ease-in-out 0.3s;
+  width: 25px;
+  height: 24px;
+}
+
+.toggle input[type="checkbox"]:checked ~ label {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  color: #fff;
+}
+
+.toggle input[type="checkbox"]:checked ~ label::after {
+  transform: translateX(25px);
+  background-color: var(--typographic-text-color-light);
+}
+
+.demo__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 40%;
+  padding: 10px;
+}
+
+.balances__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  border-left: 1px solid var(--typographic-text-color-light);
+  border-right: 1px solid var(--typographic-text-color-light);
+  border-collapse: collapse;
+  height: 60px;
+}
+
+.balances__item span {
+  display: block;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.balances__item span:first-child {
+  font-size: 10px;
+  font-weight: normal;
+}
+
+.select__container {
+  padding-left: 4rem;
+}
+
+.demo__select {
+  margin: 0 1rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; /* Remove default arrow */
+  outline: none;
+  border: none;
+  padding: 5px;
+  background-color: var(--secondary-color);
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+}
+

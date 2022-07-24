@@ -1,6 +1,5 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import "./App.css";
 
 import { Dashboard } from "./Pages/Dashboard";
 import { Splash } from "./Pages/Splash";
@@ -8,6 +7,7 @@ import { Signin } from "./Pages/Signin";
 import { Signup } from "./Pages/Signup";
 import { ForgotPassword } from "./Pages/ForgotPassword";
 import { OTPValidation } from "./Pages/OTPValidation";
+import { ErrorPage } from "./Components/ErrorPage";
 
 const App: React.FC = () => {
   return (
@@ -22,7 +22,8 @@ const App: React.FC = () => {
       </Route>
       <Route path="register" element={<Signup />} />
       <Route path="dashboard/market/order-book" element={<Dashboard />} />
-      <Route path="*" element={<Navigate to="/welcome" replace />} />
+      {/* <Route path="*" element={<Navigate to="/welcome" replace />} /> */}
+      <Route path="*" element={<ErrorPage />} />
     </Routes>
   );
 };

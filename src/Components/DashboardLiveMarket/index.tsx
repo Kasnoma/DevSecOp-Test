@@ -1,4 +1,5 @@
 import * as React from "react";
+import "./livemarket.css";
 
 interface Price {
   name: string;
@@ -11,15 +12,19 @@ type Props = {
 
 export const DashboardLiveMarket: React.FC<Props> = ({ values }) => {
   return (
-    <ul className="dashboard-live-market">
-      <li className="title">Live Market</li>
-
-      {values.map((value, index) => (
-        <li key={index}>
-          <span className="name">{value.name}</span>
-          <span className="price">{value.price}</span>
-        </li>
-      ))}
-    </ul>
+    <div className="dashboard__live__market">
+      <span>Live Market</span>
+      <ul>
+        {values.map((value, index) => (
+          <li key={index}>
+            <span className="name">{value.name}</span>
+            <span className="price">
+              &#x20A6;{value.price.toLocaleString()}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
+
