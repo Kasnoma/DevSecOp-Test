@@ -2,12 +2,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
-  max-height: 50px;
+  height: 45px;
   margin: 2rem 0 4rem;
 }
-
-.logo h1 {
-  font-weight: 300;
+.logo img {
+  height: 100%;
 }
 
