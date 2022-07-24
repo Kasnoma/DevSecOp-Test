@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import { Dashboard } from "./Pages/Dashboard";
 import { Splash } from "./Pages/Splash";
@@ -12,6 +12,7 @@ import { ErrorPage } from "./Components/ErrorPage";
 const App: React.FC = () => {
   return (
     <Routes>
+      <Route path="/" element={<Navigate to="/welcome" replace />} />
       <Route path="welcome" element={<Splash />} />
       <Route path="sign-in">
         <Route index element={<Signin />} />
