@@ -3,8 +3,9 @@ import * as React from "react";
 // import useWebSocket, { ReadyState } from "react-use-websocket";
 import { DashboardNavbar } from "../../Components/DashboardNavbar";
 import { DashboardSideBar } from "../../Components/DashboardSidebar";
-// import { TradeLog } from "../../Components/TradeLog";
 import { DashboardLiveMarket } from "../../Components/DashboardLiveMarket";
+import { DashboardSearch } from "../../Components/DashboardSearch";
+// import { TradeLog } from "../../Components/TradeLog";
 import "./dashboard.css";
 // import Manager from "../../lib/encryption";
 
@@ -49,7 +50,15 @@ export const Dashboard: React.FC<Props> = (props) => {
         price: 30834.59,
       },
       {
-        name: "Soybean (SBBS)",
+        name: "Maize (SMAZ)",
+        price: 30834.59,
+      },
+      {
+        name: "Sorghum (SSGM)",
+        price: 30834.59,
+      },
+      {
+        name: "Paddy Rice (SPRL)",
         price: 30834.59,
       },
       {
@@ -57,23 +66,7 @@ export const Dashboard: React.FC<Props> = (props) => {
         price: 30834.59,
       },
       {
-        name: "Soybean (SBBS)",
-        price: 30834.59,
-      },
-      {
-        name: "Soybean (SBBS)",
-        price: 30834.59,
-      },
-      {
-        name: "Soybean (SBBS)",
-        price: 30834.59,
-      },
-      {
-        name: "Soybean (SBBS)",
-        price: 30834.59,
-      },
-      {
-        name: "Soybean (SBBS)",
+        name: "Cocoa (SCOC)",
         price: 30834.59,
       },
       {
@@ -91,6 +84,8 @@ export const Dashboard: React.FC<Props> = (props) => {
     <section className="dashboard">
       <DashboardNavbar balances={balances} />
       <DashboardSideBar />
+      <DashboardSearch />
+      <article className="dashboard__inner"></article>
       <DashboardLiveMarket values={livePrices} />
     </section>
   );

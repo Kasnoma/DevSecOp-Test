@@ -1,19 +1,46 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
-import success_img from "../../assets/success.png";
+import { Link, useNavigate } from "react-router-dom";
+import { Button } from "../../Components/Button";
+import success_img from "../../assets/success.jpg";
+import "./signup.css";
 
-type Props = {};
+import { resetStep } from "../../store/rootSlice";
 
-export const RegistrationSuccess: React.FC<Props> = (props) => {
+import { TProps } from ".";
+
+export const RegistrationSuccess: React.FC<TProps> = ({ prevStep }) => {
+  const navigate = useNavigate();
   return (
-    <div className="registration__sucess">
-      <img src={success_img} alt="woman" />
+    <div className="registration__success">
+      <div className="image__container">
+        <img src={success_img} alt="woman" />
+      </div>
       <h2>Registration Complete</h2>
       <p className="subtitle">
         Dear [Name], Your registration is now complete <br /> You may proceed to
         your dashboard and start trading commodities
       </p>
-      <Link to="/dashboard/market/order-book"></Link>
+      <Link
+        to="/dashboard/market/order-book"
+        className="text-danger"
+        onClick={() => resetStep()}
+        replace
+      >
+        Go to Dashboard
+      </Link>
+
+      <div className="form__buttons">
+        <Button type="button" text="BACK" onClick={prevStep} />
+        <Button
+          type="submit"
+          text="NEXT"
+          onClick={() => {
+            resetStep();
+            navigate("/dashboard/market/order-book", { replace: true });
+          }}
+          className="text-danger"
+        />
+      </div>
     </div>
   );
 };

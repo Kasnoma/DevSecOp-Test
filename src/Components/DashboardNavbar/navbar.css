@@ -8,6 +8,7 @@
   left: 0;
   background-color: #fff;
   border-bottom: 1px solid #ededed;
+  z-index: 9999;
 }
 
 .logo__container {

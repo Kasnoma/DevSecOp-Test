@@ -21,7 +21,7 @@ export const Signin: React.FC<Props> = (props) => {
       <CenteredLogo />
       <div className="splash">
         <div className="form">
-          <h2>Sign in to Com X</h2>
+          <h2>Sign in to ComX</h2>
           <p>Enter your login credentials below</p>
           <Formik
             initialValues={{

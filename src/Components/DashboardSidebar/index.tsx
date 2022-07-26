@@ -18,7 +18,7 @@ export const DashboardSideBar: React.FC = () => {
         </li>
         <li>
           <NavLink to="/dashboard/market/order-book">
-            <AiOutlineLineChart />
+            <AiOutlineLineChart className="sidebar__icon" />
             <span>Market</span>
           </NavLink>
         </li>

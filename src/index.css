@@ -159,6 +159,10 @@ ul {
   border-color: var(--bg-dark);
   color: var(--bg-dark);
 }
+.btn-clear {
+  border: none;
+  background-color: transparent;
+}
 
 .bg-success {
   background-color: var(--bg-success);
