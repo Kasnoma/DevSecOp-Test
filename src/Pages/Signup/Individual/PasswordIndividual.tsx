@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Formik, Form } from "formik";
 
-import { useAppSelector, useAppDispatch } from "../../../hooks";
+import { useAppSelector } from "../../../hooks";
 
 import * as Yup from "yup";
 import { TextInput } from "../../../Components/TextInput";
@@ -14,7 +14,6 @@ export const IndividualPassword: React.FC<TProps> = ({
   nextStep,
   fillForm,
 }) => {
-  const dispatch = useAppDispatch();
   const individual = useAppSelector(
     (state: TRootState) => state.FormIndividualSignup
   );
@@ -45,7 +44,7 @@ export const IndividualPassword: React.FC<TProps> = ({
           .matches(/^\d+$/, "Phone number must be only digits"),
       })}
       onSubmit={(values) => {
-        console.log(individual);
+        fillForm?.(values);
         nextStep();
       }}
     >

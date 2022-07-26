@@ -9,7 +9,7 @@ import { TRootState } from "../../../store";
 import { TProps } from "../";
 
 // Save State to Redux
-export const IndividualDetails: React.FC<TProps> = ({ nextStep }) => {
+export const IndividualDetails: React.FC<TProps> = ({ nextStep, fillForm }) => {
   const individual = useAppSelector(
     (state: TRootState) => state.FormIndividualSignup
   );
@@ -31,8 +31,7 @@ export const IndividualDetails: React.FC<TProps> = ({ nextStep }) => {
           .email("Please enter a valid email"),
       })}
       onSubmit={(values) => {
-        // dispatch(individual(values));
-        console.log(values);
+        fillForm?.(values);
         nextStep();
       }}
     >

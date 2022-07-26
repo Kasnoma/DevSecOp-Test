@@ -9,7 +9,7 @@ import { Button } from "../../../Components/Button";
 import { TRootState } from "../../../store";
 
 // Save State to Redux
-export const CorporateDetails: React.FC<TProps> = ({ nextStep }) => {
+export const CorporateDetails: React.FC<TProps> = ({ nextStep, fillForm }) => {
   const corporate = useAppSelector(
     (state: TRootState) => state.FormCorporateSignup
   );
@@ -24,6 +24,7 @@ export const CorporateDetails: React.FC<TProps> = ({ nextStep }) => {
         ),
       })}
       onSubmit={(values, { setSubmitting }) => {
+        fillForm?.(values);
         nextStep();
         setSubmitting(false);
       }}
