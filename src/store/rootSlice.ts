@@ -4,7 +4,7 @@ interface Individual {
   firstName: string;
   lastName: string;
   email: string;
-  phone: string;
+  phone?: string;
   password?: string;
   confirmPassword?: string;
 }
@@ -13,7 +13,7 @@ interface Corporate {
   companyName: string;
   typeOfBusiness: string;
   dateOfIncorporation: string;
-  email: string;
+  email?: string;
   password?: string;
   confirmPassword?: string;
 }
@@ -54,6 +54,8 @@ export const rootSlice = createSlice({
     resetStep: (state) => {
       state.FormCorporateStep = 1;
       state.FormIndividualStep = 1;
+
+      return state;
     },
     individualNextStep: (state) => {
       if (state.FormIndividualStep >= 4) {
@@ -62,10 +64,9 @@ export const rootSlice = createSlice({
       state.FormIndividualStep += 1;
     },
     individualPreviousStep: (state) => {
-      if (state.FormIndividualStep < 1) {
+      if (state.FormIndividualStep <= 1) {
         return state;
       }
-      console.log(state.FormIndividualStep);
       state.FormIndividualStep -= 1;
     },
     formIndividualSignup: (state, action: PayloadAction<Individual>) => {

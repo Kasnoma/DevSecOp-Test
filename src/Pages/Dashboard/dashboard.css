@@ -4,6 +4,39 @@
 }
 
 .dashboard__inner {
-  margin-left: 60px;
-  margin-top: 60px;
+  margin: 70px 0 70px 280px;
+  padding: 0 2rem;
 }
+
+.tables {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+  border-radius: 4px;
+}
+
+.filter__row {
+  background-color: #fff;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  padding: 10px 20px;
+}
+.filter__row div {
+  padding: 1rem 0.5rem;
+}
+.filter__row .filter {
+  background-color: #f8fafb;
+  margin-left: 2rem;
+  padding: 8px 15px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  font-weight: 500;
+  cursor: pointer;
+}
+.filter__row .active,
+.filter__row .filter:hover {
+  background-color: var(--bg-danger);
+  color: #fff;
+}
+

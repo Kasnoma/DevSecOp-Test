@@ -4,12 +4,17 @@ import * as Yup from "yup";
 import { TProps } from "../";
 import { TextInput } from "../../../Components/TextInput";
 import { Button } from "../../../Components/Button";
+import { useAppSelector } from "../../../hooks";
+import { TRootState } from "../../../store";
 
-// Save State to Redux
 export const IndividualVerifyAccount: React.FC<TProps> = ({
   nextStep,
   prevStep,
 }) => {
+  const individual = useAppSelector(
+    (state: TRootState) => state.FormIndividualSignup
+  );
+
   return (
     <Formik
       initialValues={{ code: "" }}
@@ -19,6 +24,7 @@ export const IndividualVerifyAccount: React.FC<TProps> = ({
           .length(4, "Please enter a valid code"),
       })}
       onSubmit={(values) => {
+        console.log(individual);
         console.log(values);
         nextStep();
       }}

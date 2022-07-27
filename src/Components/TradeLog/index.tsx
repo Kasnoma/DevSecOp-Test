@@ -1,5 +1,4 @@
 import * as React from "react";
-import "./tradelog.css";
 
 interface Trade {
   security: string;
@@ -17,27 +16,48 @@ type Props = {
 
 export const TradeLog: React.FC<Props> = ({ trades }) => {
   return (
-    <table className="trade__log">
-      <tr>
-        <th className="trade__log__head">Security</th>
-        <th className="trade__log__head">Board</th>
-        <th className="trade__log__head">Order Type</th>
-        <th className="trade__log__head">Matched Price</th>
-        <th className="trade__log__head">Quantity</th>
-        <th className="trade__log__head">Date</th>
-        <th className="trade__log__head">Time</th>
-      </tr>
-      {trades.map((trade, index) => (
-        <tr key={index}>
-          <td className="trade__log__cell">{trade.security}</td>
-          <td className="trade__log__cell">{trade.board}</td>
-          <td className="trade__log__cell">{trade.order_type}</td>
-          <td className="trade__log__cell">{trade.matched_price}</td>
-          <td className="trade__log__cell">{trade.quantity}</td>
-          <td className="trade__log__cell">{trade.date}</td>
-          <td className="trade__log__cell">{trade.time}</td>
+    <table className="call__table mt-1">
+      <thead>
+        <tr>
+          <th>TRADE LOG</th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
         </tr>
-      ))}
+      </thead>
+      <thead>
+        <tr>
+          <th>Security</th>
+          <th>Board</th>
+          <th>Order Type</th>
+          <th>Matched Price</th>
+          <th>Quantity</th>
+          <th>Date</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        {trades.map((trade, index) => (
+          <tr key={index} className="trade__row">
+            <td>{trade.security}</td>
+            <td>{trade.board}</td>
+            <td>{trade.order_type}</td>
+            <td>{trade.matched_price}</td>
+            <td>{trade.quantity}</td>
+            <td>
+              {new Date(trade.date).toLocaleString("en", {
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+              })}
+            </td>
+            <td>{trade.time}</td>
+          </tr>
+        ))}
+      </tbody>
     </table>
   );
 };

@@ -5,23 +5,20 @@ import { DashboardNavbar } from "../../Components/DashboardNavbar";
 import { DashboardSideBar } from "../../Components/DashboardSidebar";
 import { DashboardLiveMarket } from "../../Components/DashboardLiveMarket";
 import { DashboardSearch } from "../../Components/DashboardSearch";
-// import { TradeLog } from "../../Components/TradeLog";
+import { TradeLog } from "../../Components/TradeLog";
+import { Table } from "../../Components/Table";
 import "./dashboard.css";
-// import Manager from "../../lib/encryption";
 
-// const manager = new Manager({
-//   key: process.env.KEY,
-//   vector: process.env.VECTOR,
-// });
-
-type Props = {};
-
-export const Dashboard: React.FC<Props> = (props) => {
+export const Dashboard: React.FC = () => {
   // const navigate = useNavigate();
 
   const [balances, setBalances] = React.useState<any[]>([]);
 
   const [livePrices, setLivePrices] = React.useState<any[]>([]);
+
+  const filter_trades = (key: string) => {
+    console.log(key);
+  };
   // const token: string | null = localStorage.getItem("comx_token");
   // React.useEffect(() => {
   //   if (!token) {
@@ -80,12 +77,179 @@ export const Dashboard: React.FC<Props> = (props) => {
     ]);
   }, []);
 
+  const buy_calls = [
+    {
+      id: "1",
+      product: "Soybean (SBBS)",
+      bid_type: "buy",
+      bid_value: 1736.62,
+      quantity: 4228,
+    },
+    {
+      id: "2",
+      product: "Paddy Rice (SPRL)",
+      bid_type: "buy",
+      bid_value: 1736.62,
+      quantity: 4228,
+    },
+    {
+      id: "3",
+      product: "Maize (SMAZ)",
+      bid_type: "buy",
+      bid_value: 1736.62,
+      quantity: 4228,
+    },
+    {
+      id: "4",
+      product: "Sorghum (SSGM)",
+      bid_type: "buy",
+      bid_value: 1736.62,
+      quantity: 4228,
+    },
+    {
+      id: "5",
+      product: "Fair Trade ETC (FETC)",
+      bid_type: "buy",
+      bid_value: 1736.62,
+      quantity: 4228,
+    },
+    {
+      id: "6",
+      product: "Fair Trade ETC (FETC)",
+      bid_type: "buy",
+      bid_value: 1736.62,
+      quantity: 4228,
+    },
+  ];
+
+  const sell_calls = [
+    {
+      id: "1",
+      product: "Soybean (SBBS)",
+      bid_type: "sell",
+      bid_value: 1736.62,
+      quantity: 4228,
+    },
+    {
+      id: "2",
+      product: "Paddy Rice (SPRL)",
+      bid_type: "sell",
+      bid_value: 1736.62,
+      quantity: 4228,
+    },
+    {
+      id: "3",
+      product: "Maize (SMAZ)",
+      bid_type: "sell",
+      bid_value: 1736.62,
+      quantity: 4228,
+    },
+    {
+      id: "4",
+      product: "Sorghum (SSGM)",
+      bid_type: "sell",
+      bid_value: 1736.62,
+      quantity: 4228,
+    },
+    {
+      id: "5",
+      product: "Fair Trade ETC (FETC)",
+      bid_type: "sell",
+      bid_value: 1736.62,
+      quantity: 4228,
+    },
+    {
+      id: "6",
+      product: "Fair Trade ETC (FETC)",
+      bid_type: "sell",
+      bid_value: 1736.62,
+      quantity: 4228,
+    },
+  ];
+
+  const trades = [
+    {
+      security: "Soybean (SBBS)",
+      board: "X-Traded",
+      order_type: "buy",
+      matched_price: 1739.45,
+      quantity: 17,
+      date: "20-06-2022",
+      time: "07:00",
+    },
+    {
+      security: "Soybean (SBBS)",
+      board: "X-Traded",
+      order_type: "buy",
+      matched_price: 1739.45,
+      quantity: 17,
+      date: "20/06/2022",
+      time: "07:00",
+    },
+  ];
+
   return (
     <section className="dashboard">
       <DashboardNavbar balances={balances} />
       <DashboardSideBar />
       <DashboardSearch />
-      <article className="dashboard__inner"></article>
+      <article className="dashboard__inner">
+        <div className="filter__row">
+          <div className="board">
+            <span>Board</span>
+            <span
+              className="filter active"
+              onClick={() => filter_trades("x-traded")}
+            >
+              X-Traded
+            </span>
+            <span className="filter" onClick={() => filter_trades("otc")}>
+              OTC
+            </span>
+            <span className="filter" onClick={() => filter_trades("fi")}>
+              FI
+            </span>
+            <span
+              className="filter"
+              onClick={() => filter_trades("derivative")}
+            >
+              Derivatives
+            </span>
+          </div>
+          <div className="product">
+            <span>Product</span>
+            <span className="filter active" onClick={() => filter_trades("")}>
+              All
+            </span>
+            <span className="filter" onClick={() => filter_trades("smaz")}>
+              SMAZ
+            </span>
+            <span className="filter" onClick={() => filter_trades("sbbs")}>
+              SBBS
+            </span>
+            <span className="filter" onClick={() => filter_trades("sprl")}>
+              SPRL
+            </span>
+            <span className="filter" onClick={() => filter_trades("sgng")}>
+              SGNG
+            </span>
+            <span className="filter" onClick={() => filter_trades("ssgm")}>
+              SSGM
+            </span>
+            <span className="filter" onClick={() => filter_trades("fetc")}>
+              FETC
+            </span>
+            <span className="filter" onClick={() => filter_trades("scoc")}>
+              SCOC
+            </span>
+          </div>
+        </div>
+        <div className="tables">
+          <Table values={buy_calls} />
+          <Table values={sell_calls} />
+        </div>
+        <TradeLog trades={trades} />
+      </article>
       <DashboardLiveMarket values={livePrices} />
     </section>
   );

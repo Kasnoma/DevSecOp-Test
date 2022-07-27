@@ -9,7 +9,6 @@ import { Button } from "../../../Components/Button";
 import { TRootState } from "../../../store";
 import { TProps } from "../";
 
-// Save State to Redux
 export const IndividualPassword: React.FC<TProps> = ({
   nextStep,
   fillForm,

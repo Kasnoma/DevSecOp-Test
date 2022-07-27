@@ -2,11 +2,16 @@ import * as React from "react";
 import { useField } from "formik";
 
 type Props = {
-  options: string[];
+  options: Option[];
   label: string;
   id: string;
   name: string;
 };
+
+interface Option {
+  value: string;
+  label: string;
+}
 
 export const Select: React.FC<Props> = (props) => {
   const [field, meta] = useField(props);
@@ -18,7 +23,11 @@ export const Select: React.FC<Props> = (props) => {
       </label>
       <select {...field} {...props} className="form__input">
         {props.options.map((option, index) => {
-          return <option key={index}>{option}</option>;
+          return (
+            <option key={index} value={option.value}>
+              {option.label}
+            </option>
+          );
         })}
       </select>
       {meta.touched && meta.error ? (

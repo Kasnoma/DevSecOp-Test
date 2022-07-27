@@ -15,7 +15,13 @@
 }
 
 .registration__success {
-  background-color: var(--secondary-color);
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-radius: 4px;
+  padding: 0 4rem;
 }
 
 .registration__success .image__container {

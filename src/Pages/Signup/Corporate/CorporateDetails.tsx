@@ -5,14 +5,33 @@ import * as Yup from "yup";
 import { TProps } from "..";
 import { useAppSelector } from "../../../hooks";
 import { TextInput } from "../../../Components/TextInput";
+import { Select } from "../../../Components/Select";
+import { DateFormPicker } from "../../../Components/DateFormPicker";
 import { Button } from "../../../Components/Button";
 import { TRootState } from "../../../store";
 
-// Save State to Redux
 export const CorporateDetails: React.FC<TProps> = ({ nextStep, fillForm }) => {
   const corporate = useAppSelector(
     (state: TRootState) => state.FormCorporateSignup
   );
+  const businesses = [
+    {
+      value: "agriculture",
+      label: "Agriculture",
+    },
+    {
+      value: "aviation",
+      label: "Aviation",
+    },
+    {
+      value: "agriculture",
+      label: "Agriculture",
+    },
+    {
+      value: "Agriculture",
+      label: "Agriculture",
+    },
+  ];
   return (
     <Formik
       initialValues={{ ...corporate }}
@@ -39,16 +58,13 @@ export const CorporateDetails: React.FC<TProps> = ({ nextStep, fillForm }) => {
         />
 
         <div className="form__grid">
-          <TextInput
-            placeholder="Select Type of Business"
-            type="text"
+          <Select
+            options={businesses}
             id="typeOfBusiness"
             name="typeOfBusiness"
             label="Type of Business"
           />
-          <TextInput
-            placeholder="Select Date"
-            type="text"
+          <DateFormPicker
             id="dateOfIncorporation"
             name="dateOfIncorporation"
             label="Date  of Incorporation"

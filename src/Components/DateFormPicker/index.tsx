@@ -1,30 +1,29 @@
 import * as React from "react";
 import { useField } from "formik";
-import "./textinput.css";
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
 
 type Props = {
   label: string;
-  value?: string;
   name: string;
-  type: string;
   id: string;
-  placeholder?: string;
-  autoComplete?: string;
 };
 
-export const TextInput: React.FC<Props> = ({ label, ...props }) => {
-  const [field, meta] = useField(props);
+export const DateFormPicker: React.FC<Props> = (props) => {
+  const [field, meta, { setValue }] = useField(props);
   return (
     <div className="input__group">
       <label htmlFor={props.name || props.id} className="form__label">
-        {label}
+        {props.label}
       </label>
-      <input
+      <DatePicker
         {...field}
         {...props}
-        name={props.name}
-        value={field.value}
-        autoComplete={props.autoComplete}
+        selected={(field.value && new Date(field.value)) || null}
+        onChange={(val: any) => {
+          setValue(val);
+        }}
         className="form__input"
       />
       {meta.touched && meta.error ? (

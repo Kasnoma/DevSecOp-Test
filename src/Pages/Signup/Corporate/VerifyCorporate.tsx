@@ -5,11 +5,16 @@ import * as Yup from "yup";
 import { TextInput } from "../../../Components/TextInput";
 import { Button } from "../../../Components/Button";
 
-// Save State to Redux
+import { TRootState } from "../../../store";
+import { useAppSelector } from "../../../hooks";
+
 export const CorporateVerifyAccount: React.FC<TProps> = ({
   nextStep,
   prevStep,
 }) => {
+  const corporate = useAppSelector(
+    (state: TRootState) => state.FormCorporateSignup
+  );
   return (
     <Formik
       initialValues={{ code: "" }}
@@ -20,6 +25,7 @@ export const CorporateVerifyAccount: React.FC<TProps> = ({
       })}
       onSubmit={(values) => {
         console.log(values);
+        console.log(corporate);
         nextStep();
       }}
     >

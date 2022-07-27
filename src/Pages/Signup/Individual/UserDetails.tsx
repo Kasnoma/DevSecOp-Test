@@ -8,7 +8,6 @@ import { TRootState } from "../../../store";
 
 import { TProps } from "../";
 
-// Save State to Redux
 export const IndividualDetails: React.FC<TProps> = ({ nextStep, fillForm }) => {
   const individual = useAppSelector(
     (state: TRootState) => state.FormIndividualSignup
