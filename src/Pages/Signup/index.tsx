@@ -6,6 +6,10 @@ import "./signup.css";
 import { IndividualLadder } from "./Individual";
 import { CorporateLadder } from "./Corporate";
 
+import { useAppSelector } from "../../hooks";
+
+import { ProgressBar } from "../../Components/ProgressBar";
+
 export type TProps = {
   nextStep: () => void;
   prevStep?: () => void;
@@ -14,6 +18,15 @@ export type TProps = {
 
 export const Signup: React.FC = () => {
   const [individual, setIndividual] = React.useState(true);
+
+  const individualCurrentStep = useAppSelector(
+    (state) => state.FormIndividualStep
+  );
+  const corporateCurrentStep = useAppSelector(
+    (state) => state.FormCorporateStep
+  );
+
+  const current = individual ? individualCurrentStep : corporateCurrentStep;
   return (
     <>
       <CenteredLogo />
@@ -44,6 +57,8 @@ export const Signup: React.FC = () => {
           {individual ? <IndividualLadder /> : <CorporateLadder />}
         </div>
       </div>
+
+      <ProgressBar currentStep={current} />
     </>
   );
 };

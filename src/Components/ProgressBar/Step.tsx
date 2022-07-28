@@ -1,14 +1,15 @@
 import React from "react";
 
 type Props = {
-  id: string;
-  step: number;
+  label: number;
+  className: string;
 };
 
 export const Step: React.FC<Props> = (props) => {
   return (
-    <li className="step__item" id={props.id}>
-      {props.step}{" "}
-    </li>
+    <div className={`progress__item ${props.className}`}>
+      <div className="progress__content">{props.label} </div>
+    </div>
   );
 };
+
