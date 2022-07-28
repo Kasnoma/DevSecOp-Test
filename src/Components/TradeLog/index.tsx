@@ -48,10 +48,10 @@ export const TradeLog: React.FC<Props> = ({ trades }) => {
             <td>{trade.matched_price}</td>
             <td>{trade.quantity}</td>
             <td>
-              {new Date(trade.date).toLocaleString("en", {
-                year: "numeric",
+              {new Date(trade.date).toLocaleDateString("en-uk", {
                 month: "short",
-                day: "numeric",
+                year: "numeric",
+                day: "2-digit",
               })}
             </td>
             <td>{trade.time}</td>

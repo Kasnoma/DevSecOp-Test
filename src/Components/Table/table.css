@@ -54,6 +54,7 @@ th:first-child {
 }
 .call__table button:hover {
   scale: 1.1;
+  transform: scale(1.1);
   transition: all 0.1s linear;
 }
 .trade__row td {

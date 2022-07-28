@@ -174,7 +174,7 @@ export const Dashboard: React.FC = () => {
       order_type: "buy",
       matched_price: 1739.45,
       quantity: 17,
-      date: "20-06-2022",
+      date: "06/07/2022",
       time: "07:00",
     },
     {
@@ -183,7 +183,7 @@ export const Dashboard: React.FC = () => {
       order_type: "buy",
       matched_price: 1739.45,
       quantity: 17,
-      date: "20/06/2022",
+      date: "06/08/2022",
       time: "07:00",
     },
   ];
