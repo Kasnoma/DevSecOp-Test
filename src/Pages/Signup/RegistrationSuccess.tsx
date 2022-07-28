@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../../Components/Button";
-import success_img from "../../assets/success.jpg";
+import success_img from "../../assets/success.webp";
 import "./signup.css";
 
 import { resetStep } from "../../store/rootSlice";
