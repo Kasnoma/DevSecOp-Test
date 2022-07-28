@@ -7,6 +7,9 @@ import { DashboardLiveMarket } from "../../Components/DashboardLiveMarket";
 import { DashboardSearch } from "../../Components/DashboardSearch";
 import { TradeLog } from "../../Components/TradeLog";
 import { Table } from "../../Components/Table";
+
+import { requestHandle } from "../../util/requestHandle";
+
 import "./dashboard.css";
 
 export const Dashboard: React.FC = () => {
@@ -37,6 +40,18 @@ export const Dashboard: React.FC = () => {
       // just a fallback for older browsers
       window.scrollTo(0, 0);
     }
+  }, []);
+
+  React.useEffect(() => {
+    async function fetcher() {
+      const data = await requestHandle(
+        "get",
+        "https://comx-sand-api.afexnigeria.com/api/security-price/live"
+      );
+      console.log(data);
+      return data;
+    }
+    fetcher();
   }, []);
 
   React.useEffect(() => {

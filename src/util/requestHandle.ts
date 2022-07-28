@@ -1,10 +1,7 @@
 import axios from "axios";
 import Manager from "../lib/encryption";
 
-const manager = new Manager({
-  key: process.env.KEY,
-  vector: process.env.VECTOR,
-});
+const manager = new Manager(process.env.KEY, process.env.VECTOR);
 
 const baseURL = process.env.BASE_URL;
 
@@ -20,9 +17,17 @@ const client = axios.create({
   },
 });
 
-export const requestHandle = async (method, url, data) => {
+export const requestHandle = async (
+  method: string,
+  url: string,
+  data?: any
+) => {
   const form_data = manager.encrypt(data);
-  const response = await client[method](url, JSON.stringify(form_data));
+  const response = await client.request({
+    method,
+    url,
+    data: form_data,
+  });
 
   const data_decrypt = manager.decrypt(response.data);
 
