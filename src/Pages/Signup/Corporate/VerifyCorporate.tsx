@@ -23,15 +23,11 @@ export const CorporateVerifyAccount: React.FC<TProps> = ({
           .required("Please enter a code")
           .length(4, "Please enter a valid code"),
       })}
-      onSubmit={(values) => {
-        console.log(values);
-        console.log(corporate);
-        nextStep();
-      }}
+      onSubmit={nextStep}
     >
       <Form>
         <TextInput
-          label={`Enter the 4 digit code that was sent to {corporate.email}`}
+          label={`Enter the 4 digit code that was sent to ${corporate.email}`}
           id="code"
           placeholder="Enter code"
           name="code"

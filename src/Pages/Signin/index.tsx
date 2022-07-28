@@ -12,8 +12,8 @@ type Props = {};
 export const Signin: React.FC<Props> = (props) => {
   const navigate = useNavigate();
 
-  const handleSubmit = (values: any) => {
-    console.log(values);
+  const handleSubmit = () => {
+    navigate("/dashboard/market/order-book");
   };
 
   return (

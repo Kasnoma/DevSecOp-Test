@@ -18,6 +18,9 @@ export const CorporateLadder = () => {
   const currentStage = useAppSelector(
     (state: TRootState) => state.FormCorporateStep
   );
+
+  const user = useAppSelector((state: TRootState) => state.FormCorporateSignup);
+
   const dispatch = useAppDispatch();
 
   const nextStep = () => {
@@ -38,7 +41,11 @@ export const CorporateLadder = () => {
       );
     default:
       return (
-        <RegistrationSuccess nextStep={nextStep} prevStep={previousStep} />
+        <RegistrationSuccess
+          nextStep={nextStep}
+          prevStep={previousStep}
+          user={user.companyName}
+        />
       );
   }
 };

@@ -13,6 +13,7 @@ import { ProgressBar } from "../../Components/ProgressBar";
 export type TProps = {
   nextStep: () => void;
   prevStep?: () => void;
+  user?: string;
   fillForm?: (values: any) => void;
 };
 

@@ -23,15 +23,11 @@ export const IndividualVerifyAccount: React.FC<TProps> = ({
           .required("Please enter a code")
           .length(4, "Please enter a valid code"),
       })}
-      onSubmit={(values) => {
-        console.log(individual);
-        console.log(values);
-        nextStep();
-      }}
+      onSubmit={nextStep}
     >
       <Form>
         <TextInput
-          label={`Enter the 4 digit code that was sent to {individual.phone} and {individual.email}`}
+          label={`Enter the 4 digit code that was sent to ${individual.phone} and ${individual.email}`}
           id="code"
           placeholder="Enter code"
           name="code"

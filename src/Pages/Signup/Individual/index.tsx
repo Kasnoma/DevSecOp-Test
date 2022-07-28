@@ -20,6 +20,10 @@ export const IndividualLadder = () => {
     (state: TRootState) => state.FormIndividualStep
   );
 
+  const user = useAppSelector(
+    (state: TRootState) => state.FormIndividualSignup
+  );
+
   const dispatch = useAppDispatch();
 
   const nextStep = () => {
@@ -45,7 +49,11 @@ export const IndividualLadder = () => {
       );
     default:
       return (
-        <RegistrationSuccess nextStep={nextStep} prevStep={previousStep} />
+        <RegistrationSuccess
+          nextStep={nextStep}
+          prevStep={previousStep}
+          user={user.firstName}
+        />
       );
   }
 };

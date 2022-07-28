@@ -9,9 +9,10 @@ import { useAppDispatch } from "../../hooks";
 
 import { TProps } from ".";
 
-export const RegistrationSuccess: React.FC<TProps> = ({ prevStep }) => {
+export const RegistrationSuccess: React.FC<TProps> = ({ prevStep, user }) => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
+
   return (
     <div className="registration__success">
       <div className="image__container">
@@ -19,7 +20,7 @@ export const RegistrationSuccess: React.FC<TProps> = ({ prevStep }) => {
       </div>
       <h2>Registration Complete</h2>
       <p className="subtitle">
-        Dear [Name], Your registration is now complete <br /> You may proceed to
+        Dear {user}, Your registration is now complete <br /> You may proceed to
         your dashboard and start trading commodities
       </p>
       <p>

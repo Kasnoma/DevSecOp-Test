@@ -14,7 +14,7 @@ export const OTPValidation: React.FC = () => {
   };
 
   const handleSubmit = (values: any) => {
-    console.log(values);
+    navigate("/sign-in");
   };
   return (
     <>

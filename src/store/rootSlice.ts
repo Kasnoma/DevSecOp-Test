@@ -51,11 +51,8 @@ export const rootSlice = createSlice({
   initialState,
 
   reducers: {
-    resetStep: (state) => {
-      state.FormCorporateStep = 1;
-      state.FormIndividualStep = 1;
-
-      return state;
+    resetStep: () => {
+      return initialState;
     },
     individualNextStep: (state) => {
       if (state.FormIndividualStep >= 4) {
